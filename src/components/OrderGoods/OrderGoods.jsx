@@ -2,8 +2,6 @@ import { Count } from "../Count/Count"
 import s from "./OrderGoods.module.css"
 
 export const OrderGoods = ({ title }) => {
-  console.log(title)
-
   return (
     <li className={s.item}>
       <img className={s.image} src="img/free_1.jpg" alt={title} />
