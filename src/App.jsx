@@ -1,6 +1,6 @@
 import { Header } from "./components/Header"
 import { Navigation } from "./components/Navigation"
-import { Catalog } from "./components/Section"
+import { Catalog } from "./components/Catalog"
 
 export const App = () => {
   return (
