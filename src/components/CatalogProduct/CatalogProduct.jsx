@@ -1,8 +1,12 @@
 import s from "./CatalogProduct.module.css";
+import { useDispatch } from "react-redux";
 
 import { API_URL } from "../../constants";
+import { addProduct } from "../../store/order/orderSlice";
 
-export const CatalogProduct = ({ image, title, price, weight }) => {
+export const CatalogProduct = ({ image, title, price, weight, id }) => {
+  const dispatch = useDispatch();
+
   return (
     <article className={s.product}>
       <img src={`${API_URL}/${image}`} alt={title} className={s.image} />
@@ -18,7 +22,13 @@ export const CatalogProduct = ({ image, title, price, weight }) => {
 
       <p className={s.weight}>{weight}г</p>
 
-      <button className={s.add} type="button">
+      <button
+        className={s.add}
+        type="button"
+        onClick={() => {
+          dispatch(addProduct({ id: id }));
+        }}
+      >
         Добавить
       </button>
     </article>
