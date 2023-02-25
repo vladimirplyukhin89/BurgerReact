@@ -1,9 +1,10 @@
-import { Provider } from "react-redux"
+import { Provider } from "react-redux";
 
-import { Header } from "./components/Header"
-import { Navigation } from "./components/Navigation"
-import { Catalog } from "./components/Catalog"
-import { store } from "./store"
+import { Header } from "./components/Header";
+import { Navigation } from "./components/Navigation";
+import { Catalog } from "./components/Catalog";
+import { Footer } from "./components/Footer";
+import { store } from "./store";
 
 export const App = () => {
   return (
@@ -13,7 +14,7 @@ export const App = () => {
         <Navigation />
         <Catalog />
       </main>
-      <footer></footer>
+      <Footer />
     </Provider>
-  )
-}
+  );
+};

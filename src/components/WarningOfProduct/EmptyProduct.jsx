@@ -7,7 +7,7 @@ export const EmptyProduct = () => {
     <article className={s.product}>
       <img src={logo} alt="Предупреждение" className={s.image} />
 
-      <h3 className={s.title}>К сожалению, WOK нет</h3>
+      <h3 className={s.title}>К сожалению, данного товара нет</h3>
     </article>
   );
 };

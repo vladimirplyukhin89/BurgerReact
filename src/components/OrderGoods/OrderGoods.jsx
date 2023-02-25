@@ -1,23 +1,25 @@
-import { Count } from "../Count/Count"
-import s from "./OrderGoods.module.css"
+import s from "./OrderGoods.module.css";
 
-export const OrderGoods = ({ title }) => {
+import { Count } from "../Count/Count";
+import { API_URL } from "../../constants";
+
+export const OrderGoods = ({ title, weight, price, image, count, id }) => {
   return (
     <li className={s.item}>
-      <img className={s.image} src="img/free_1.jpg" alt={title} />
+      <img className={s.image} src={`${API_URL}/${image}`} alt={title} />
 
       <div className={s.goods}>
         <h3 className={s.title}>{title} </h3>
 
-        <p className={s.weight}>180г</p>
+        <p className={s.weight}>{weight}г</p>
 
         <p className={s.price}>
-          245
-          <span className="currency">₽</span>
+          {price}
+          <span className="currency">&nbsp;₽</span>
         </p>
       </div>
 
-      <Count />
+      <Count count={count} id={id} />
     </li>
-  )
-}
+  );
+};

@@ -8,7 +8,7 @@ const initialState = {
 
 export const productRequestAsync = createAsyncThunk(
   "product/fetch",
-  (category, _) => {
+  (category) => {
     return fetch(`${API_URL}${POSTFIX}?category=${category}`)
       .then((req) => req.json())
       .catch((error) => ({ error }));
@@ -20,13 +20,13 @@ const productSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(productRequestAsync.pending.type, (state) => {
+      .addCase(productRequestAsync.pending, (state) => {
         state.error = "";
       })
-      .addCase(productRequestAsync.fulfilled.type, (state, action) => {
+      .addCase(productRequestAsync.fulfilled, (state, action) => {
         (state.error = ""), (state.products = action.payload);
       })
-      .addCase(productRequestAsync.rejected.type, (state, action) => {
+      .addCase(productRequestAsync.rejected, (state, action) => {
         state.error = action.payload.error;
       });
   },

@@ -13,7 +13,7 @@ export const CatalogProduct = ({ image, title, price, weight, id }) => {
 
       <p className={s.price}>
         {price}
-        <span className="currency">₽</span>
+        <span className="currency">&nbsp;₽</span>
       </p>
 
       <h3 className={s.title}>
