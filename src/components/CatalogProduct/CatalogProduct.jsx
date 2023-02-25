@@ -1,24 +1,26 @@
-import cn from "classnames"
-import s from "./CatalogProduct.module.css"
+import s from "./CatalogProduct.module.css";
 
-export const CatalogProduct = ({ title }) => {
+import { API_URL } from "../../constants";
+
+export const CatalogProduct = ({ image, title, price, weight }) => {
   return (
     <article className={s.product}>
-      <img src="img/photo-5.jpg" alt={title} className={s.image} />
+      <img src={`${API_URL}/${image}`} alt={title} className={s.image} />
 
       <p className={s.price}>
-        689<span className="currency">₽</span>
+        {price}
+        <span className="currency">₽</span>
       </p>
 
       <h3 className={s.title}>
         <button className={s.detail}>{title}</button>
       </h3>
 
-      <p className={s.weight}>520г</p>
+      <p className={s.weight}>{weight}г</p>
 
       <button className={s.add} type="button">
         Добавить
       </button>
     </article>
-  )
-}
+  );
+};
