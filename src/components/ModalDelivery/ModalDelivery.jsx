@@ -1,11 +1,30 @@
 import cn from "classnames";
 import s from "./ModalDelivery.module.css";
 import { useSelector, useDispatch } from "react-redux";
+
 import { closeModal } from "../../store/modalDelivery/modalDeliverySlice";
+import { submitForm, updateFormValue } from "../../store/form/formSlice";
 
 export const ModalDelivery = () => {
   const { isOpen } = useSelector((state) => state.modal);
+  const form = useSelector((state) => state.form);
+  const { orderList } = useSelector((state) => state.order);
   const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    dispatch(
+      updateFormValue({
+        field: e.target.name,
+        value: e.target.value,
+      })
+    );
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(submitForm({ ...form, orderList }));
+  };
 
   return (
     isOpen && (
@@ -21,19 +40,23 @@ export const ModalDelivery = () => {
           <div className={s.container}>
             <h2 className={s.title}>Доставка</h2>
 
-            <form className={s.form} id="delivery">
+            <form className={s.form} id="delivery" onSubmit={handleSubmit}>
               <fieldset className={s.fieldset}>
                 <input
                   className={s.input}
                   type="text"
                   name="name"
+                  value={form.name}
                   placeholder="Ваше имя"
+                  onChange={handleChange}
                 />
                 <input
                   className={s.input}
                   type="tel"
                   name="phone"
+                  value={form.phone}
                   placeholder="Телефон"
+                  onChange={handleChange}
                 />
               </fieldset>
 
@@ -44,6 +67,8 @@ export const ModalDelivery = () => {
                     type="radio"
                     name="format"
                     value="pickup"
+                    checked={form.format === "pickup"}
+                    onChange={handleChange}
                   />
                   <span>Самовывоз</span>
                 </label>
@@ -54,32 +79,40 @@ export const ModalDelivery = () => {
                     type="radio"
                     name="format"
                     value="delivery"
-                    checked
+                    checked={form.format === "delivery"}
+                    onChange={handleChange}
                   />
                   <span>Доставка</span>
                 </label>
               </fieldset>
-
-              <fieldset className={s.fieldset}>
-                <input
-                  className={s.input}
-                  type="text"
-                  name="address"
-                  placeholder="Улица, дом, квартира"
-                />
-                <input
-                  className={cn(s.input, s.input_half)}
-                  type="number"
-                  name="floor"
-                  placeholder="Этаж"
-                />
-                <input
-                  className={cn(s.input, s.input_half)}
-                  type="number"
-                  name="intercom"
-                  placeholder="Домофон"
-                />
-              </fieldset>
+              {form.format === "delivery" && (
+                <fieldset className={s.fieldset}>
+                  <input
+                    className={s.input}
+                    type="text"
+                    name="address"
+                    value={form.address}
+                    placeholder="Улица, дом, квартира"
+                    onChange={handleChange}
+                  />
+                  <input
+                    className={cn(s.input, s.input_half)}
+                    type="number"
+                    name="floor"
+                    value={form.floor}
+                    placeholder="Этаж"
+                    onChange={handleChange}
+                  />
+                  <input
+                    className={cn(s.input, s.input_half)}
+                    type="number"
+                    name="intercom"
+                    value={form.intercom}
+                    placeholder="Домофон"
+                    onChange={handleChange}
+                  />
+                </fieldset>
+              )}
             </form>
 
             <button className={s.submit} type="submit" form="delivery">

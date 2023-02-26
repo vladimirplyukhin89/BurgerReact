@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { API_URL } from "../../constants";
 import { addProduct } from "../../store/order/orderSlice";
+import { openModal } from "../../store/modalDelivery/modalDeliverySlice";
 
 export const CatalogProduct = ({ image, title, price, weight, id }) => {
   const dispatch = useDispatch();
@@ -17,17 +18,25 @@ export const CatalogProduct = ({ image, title, price, weight, id }) => {
       </p>
 
       <h3 className={s.title}>
-        <button className={s.detail}>{title}</button>
+        <button
+          type="button"
+          onClick={() => {
+            dispatch(openModal());
+          }}
+          className={s.detail}
+        >
+          {title}
+        </button>
       </h3>
 
       <p className={s.weight}>{weight}г</p>
 
       <button
-        className={s.add}
         type="button"
         onClick={() => {
           dispatch(addProduct({ id: id }));
         }}
+        className={s.add}
       >
         Добавить
       </button>

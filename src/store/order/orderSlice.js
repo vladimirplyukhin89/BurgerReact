@@ -71,6 +71,12 @@ const orderSlice = createSlice({
         );
       }
     },
+    clearGoods: (state) => {
+      state.orderList = [];
+      state.orderGoods = [];
+      state.totalPrice = 0;
+      state.totalCount = 0;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -95,5 +101,5 @@ const orderSlice = createSlice({
   },
 });
 
-export const { addProduct, removeProduct } = orderSlice.actions;
+export const { addProduct, removeProduct, clearGoods } = orderSlice.actions;
 export default orderSlice.reducer;
