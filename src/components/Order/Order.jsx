@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { OrderGoods } from "../OrderGoods/OrderGoods";
 import s from "./Order.module.css";
 import { orderRequestAsync } from "../../store/order/orderSlice";
+import { openModal } from "../../store/modalDelivery/modalDeliverySlice";
+import { getDisabled } from "../../utils";
 
 export const Order = () => {
-  const { category, activeCategory } = useSelector((state) => state.category);
   const { totalCount, totalPrice, orderList, orderGoods } = useSelector(
     (state) => state.order
   );
@@ -14,7 +15,7 @@ export const Order = () => {
 
   React.useEffect(() => {
     dispatch(orderRequestAsync());
-  }, [orderList.length, activeCategory]);
+  }, [orderList.length]);
 
   return (
     <div className={s.order}>
@@ -40,7 +41,15 @@ export const Order = () => {
             </p>
           </div>
 
-          <button className={s.submit}>Оформить заказ</button>
+          <button
+            onClick={() => {
+              dispatch(openModal());
+            }}
+            className={s.submit}
+            disabled={getDisabled(orderGoods)}
+          >
+            Оформить заказ
+          </button>
 
           <div className={s.apeal}>
             <p className={s.text}>Бесплатная доставка</p>

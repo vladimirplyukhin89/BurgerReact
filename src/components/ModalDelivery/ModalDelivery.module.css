@@ -7,34 +7,32 @@
   display: flex;
 }
 
-.modal__close {
-  color: #B1B1B1;
+.close {
+  color: #b1b1b1;
   position: absolute;
   top: 10px;
   right: 10px;
   outline: 1px solid transparent;
   outline-offset: 3px;
   border-radius: 3px;
-  transition: color .3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 
-.modal__close:hover {
-  color: #FF7020;
+.close:hover {
+  color: #ff7020;
 }
 
-
-.modal__close:focus-visible {
-  color: #FF7020;
-  outline-color: #FF7020;
+.close:focus-visible {
+  color: #ff7020;
+  outline-color: #ff7020;
 }
-
 
 .mdelivery {
   position: relative;
   cursor: default;
   margin: auto;
   --gap: 8px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 100%;
   min-height: 100%;
   padding: 32px 10px;
@@ -47,7 +45,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-
 }
 
 .title {
@@ -57,16 +54,13 @@
   margin-bottom: 18px;
 }
 
-
 .form {
   display: flex;
   flex-direction: column;
   gap: 24px;
   flex-grow: 1;
   margin-bottom: 18px;
-
 }
-
 
 .fieldset {
   display: flex;
@@ -82,16 +76,14 @@
   align-items: flex-start;
 }
 
-
 .fieldset_hide {
   visibility: hidden;
 }
 
-
 .input {
   width: 100%;
   height: 30px;
-  border: 1px solid #F2F2F3;
+  border: 1px solid #f2f2f3;
   border-radius: 8px;
   padding: 8px 12px;
   font-weight: 400;
@@ -105,7 +97,7 @@
 }
 
 .input::placeholder {
-  color: #B1B1B1;
+  color: #b1b1b1;
 }
 
 .label {
@@ -125,7 +117,7 @@
 }
 
 .radio:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -134,12 +126,11 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 1px solid #F2F2F3;
-
+  border: 1px solid #f2f2f3;
 }
 
 .radio:after {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   width: 6px;
@@ -158,35 +149,35 @@
 
 .submit {
   padding: 9px;
-  background-color: #FF7020;
+  background-color: #ff7020;
   border-radius: 8px;
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
-  color: #FFFFFF;
-  transition: transform .1s ease, background-color .3s ease-in-out;
+  color: #ffffff;
+  transition: transform 0.1s ease, background-color 0.3s ease-in-out;
 }
 
 .submit:hover {
-  background-color: #FFAB08;
+  background-color: #ffab08;
 }
 
 .submit:focus-visible {
-  background-color: #F86310;
+  background-color: #f86310;
 }
 
 .submit:active {
-  transform: translate(1px, 2px)
+  transform: translate(1px, 2px);
 }
 
 .submit:disabled {
-  background-color: #F9F9F9;
-  color: #ACACAC;
+  background-color: #f9f9f9;
+  color: #acacac;
 }
 
 @supports not selector(:focus-visible) {
   .submit:focus {
-    background-color: #F86310;
+    background-color: #f86310;
   }
 }
 
@@ -206,7 +197,6 @@
   .container {
     margin-left: 0;
   }
-
 }
 
 @media (min-width: 1024px) {
@@ -214,7 +204,7 @@
     padding: 20px;
   }
 
-  .modal__close {
+  .close {
     top: 24px;
     right: 24px;
   }
@@ -222,7 +212,8 @@
   .mdelivery {
     max-width: 684px;
     padding: 44px 24px 24px 366px;
-    background: url('../../assets/img/donut.svg') 19px center, linear-gradient(to right, #FFAB08 50%, #fff 50%);
+    background: url("../../assets/img/donut.svg") 19px center,
+      linear-gradient(to right, #ffab08 50%, #fff 50%);
     background-size: 302px, auto;
     background-repeat: no-repeat;
   }

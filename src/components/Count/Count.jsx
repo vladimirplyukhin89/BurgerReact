@@ -12,17 +12,16 @@ export const Count = ({ count, id }) => {
   };
 
   const removeCount = () => {
-    if (count > 0) {
-      dispatch(removeProduct({ id: id }));
-    }
+    dispatch(removeProduct({ id: id }));
   };
+
   return (
     <div className={s.count}>
-      <button className={s.minus} onClick={removeCount} disabled={count === 0}>
+      <button className={s.minus} onClick={removeCount}>
         -
       </button>
       <p className={s.amount}>{count}</p>
-      <button className={s.plus} onClick={addCount} disabled={count === 99}>
+      <button className={s.plus} onClick={addCount}>
         +
       </button>
     </div>

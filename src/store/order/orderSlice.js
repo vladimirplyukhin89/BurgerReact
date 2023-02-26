@@ -49,14 +49,14 @@ const orderSlice = createSlice({
         productOrderGoods.count = productOrderList.count;
         [state.totalCount, state.totalPrice] = calcTotal(state.orderGoods);
       } else {
-        state.orderList.push({ ...action.payload, count: 1 });
+        state.orderList.push({ ...action.payload, count: 0 });
       }
     },
     removeProduct: (state, action) => {
       const productOrderList = state.orderList.find(
         (item) => item.id === action.payload.id
       );
-      if (productOrderList.count > 1) {
+      if (productOrderList.count > 0) {
         productOrderList.count -= 1;
 
         const productOrderGoods = state.orderGoods.find(

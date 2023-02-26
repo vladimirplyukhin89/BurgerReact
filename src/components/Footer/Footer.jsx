@@ -6,16 +6,16 @@ import logo from "../../assets/img/logo-o.svg";
 
 export const Footer = () => {
   return (
-    <footer class={s.footer}>
+    <footer className={s.footer}>
       <Container className={s.container}>
-        <div class={s.content}>
-          <img class={s.logo} src={logo} alt="Логотип YourMeal" />
+        <div className={s.content}>
+          <img className={s.logo} src={logo} alt="Логотип YourMeal" />
 
-          <address class={s.address}>
-            <div class={s.contact}>
-              <h2 class={s.title}>Номер для заказа</h2>
+          <address className={s.address}>
+            <div className={s.contact}>
+              <h2 className={s.title}>Номер для заказа</h2>
 
-              <a class={s.phone} href="tel:+79308333811">
+              <a className={s.phone} href="tel:+79308333811">
                 <svg
                   width="24"
                   height="24"
@@ -30,12 +30,12 @@ export const Footer = () => {
               </a>
             </div>
 
-            <div class={s.contact}>
-              <h2 class={cn(s.title, s.title_sn)}>Мы в соцсетях</h2>
+            <div className={s.contact}>
+              <h2 className={cn(s.title, s.title_sn)}>Мы в соцсетях</h2>
 
-              <ul class={s.list}>
-                <li class={s.item}>
-                  <a href="#" class={s.sn} aria-label="группа в вк">
+              <ul className={s.list}>
+                <li className={s.item}>
+                  <a href="#" className={s.sn} aria-label="группа в вк">
                     <svg
                       width="36"
                       height="36"
@@ -48,8 +48,8 @@ export const Footer = () => {
                   </a>
                 </li>
 
-                <li class="item">
-                  <a href="#" class={s.sn} aria-label="канал в telegram">
+                <li className="item">
+                  <a href="#" className={s.sn} aria-label="канал в telegram">
                     <svg
                       width="36"
                       height="36"
@@ -65,7 +65,7 @@ export const Footer = () => {
             </div>
           </address>
 
-          <div class={s.development}>
+          <div className={s.development}>
             <p>© YouMeal, 2023</p>
             <p>
               Design: <a href="#">Anastasia Ilina</a>
